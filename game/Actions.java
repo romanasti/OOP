@@ -1,9 +1,12 @@
 package game;
 
+import game.Chars.Vector2;
+
 public interface Actions {
-    float hit();
+    void hit();
     float getHit(float damage);
     boolean status();
-    boolean changePosition();
+    Vector2 changePosition();
     String returnCondtion();
+    void step();
 }

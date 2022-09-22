@@ -1,31 +1,31 @@
 package game.Chars;
 
+import java.util.List;
+
 import game.BaseHero;
 
 public class Sniper extends BaseHero {
-    public Sniper() {
+    public Sniper(List<BaseHero> side, int x, int y) {
+        super(side);
         name = "Lixo";
         attack = 12;
         protection = 10;
         shots = 32;
-        damage[0] = 8; damage[1] = 10;
+        damage = new Vector2(-4, -4);
         health = 15;
         speed = 9;
         delivery = false;
         magic = false;
-    }
-
-    public Sniper(int protection, int attack) {
-        this.protection = protection;
-        this.attack = attack;
-    }
-
-    public Sniper(String name) {
-        this.name = name;
+        status = "stand";
     }
 
     public String getInfo() {
         return String.format("the longest battle distance");
+    }
+
+    @Override
+    public void step() {
+  
     }
 
 }

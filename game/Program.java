@@ -2,6 +2,8 @@ package game;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
+import java.util.Scanner;
 
 import game.Chars.Crossbow;
 import game.Chars.Magician;
@@ -14,30 +16,87 @@ import game.Chars.Spearman;
 
 public class Program {
     public static void main(String[] args) {
-        List<Magician> allMagician = new ArrayList<>();
-        List<Sniper> allSniper = new ArrayList<>();
-        List<Crossbow> allCrossbow = new ArrayList<>();
-        List<Monk> allMonk = new ArrayList<>();
-        List<Outlaw> allOutlaw = new ArrayList<>();
-        List<Peasant> allPeasant = new ArrayList<>();
-        List<Spearman> allSpearman = new ArrayList<>();
+     
+        List<BaseHero> darkSide = new ArrayList<>();
+        List<BaseHero> lightSide = new ArrayList<>();
 
-        while (allMagician.size() < 5) {allMagician.add(new Magician("Ezios"));}
-        while (allSniper.size() < 5) {allSniper.add(new Sniper("Lixo"));}
-        while (allCrossbow.size() < 5) {allCrossbow.add(new Crossbow("Taurus"));}
-        while (allMonk.size() < 5) {allMonk.add(new Monk("Veron"));}
-        while (allOutlaw.size() < 5) {allOutlaw.add(new Outlaw("Vastik"));}
-        while (allPeasant.size() < 5) {allPeasant.add(new Peasant("Protol"));}
-        while (allSpearman.size() < 5) {allSpearman.add(new Spearman("Nolen"));}
-            
-        for (Magician magician : allMagician) {System.out.println(magician.getName() +" -> "+ magician.getInfo());}
-        for (Sniper sniper : allSniper) {System.out.println(sniper.getName() +" -> "+ sniper.getInfo());}
-        for (Crossbow crossbow : allCrossbow) {System.out.println(crossbow.getName() +" -> "+ crossbow.getInfo());}
-        for (Monk monk : allMonk) {System.out.println(monk.getName() +" -> "+ monk.getInfo());}
-        for (Outlaw outlaw : allOutlaw) {System.out.println(outlaw.getName() +" -> "+ outlaw.getInfo());}
-        for (Peasant peasnt : allPeasant) {System.out.println(peasnt.getName() +" -> "+ peasnt.getInfo());}
-        for (Spearman spearman : allSpearman) {System.out.println(spearman.getName() +" -> "+ spearman.getInfo());}
-      
+        Random rnd = new Random();
+        for (int i = 0; i < 10; i++) {
+            switch (rnd.nextInt(7)) {
+                case 0:
+                    darkSide.add(new Peasant(darkSide, 0, 0));
+                    break;
+                case 1:
+                    darkSide.add(new Outlaw(darkSide, 0, 0));
+                    break;
+                case 2:
+                    darkSide.add(new Sniper(darkSide, 0, 0));
+                    break;
+                case 3:
+                    darkSide.add(new Spearman(darkSide, 0, 0));
+                    break;
+                case 4:
+                    darkSide.add(new Magician(darkSide, 0, 0));
+                    break;
+                case 5:
+                    darkSide.add(new Crossbow(darkSide, 0, 0));
+                    break;
+                default:
+                    darkSide.add(new Monk(darkSide, 0, 0));
+
+            }
+
+        }
+        for (int i = 0; i < 10; i++) {
+            switch (rnd.nextInt(7)) {
+                case 0:
+                    lightSide.add(new Peasant(lightSide, 0, 0));
+                    break;
+                case 1:
+                    lightSide.add(new Outlaw(lightSide, 0, 0));
+                    break;
+                case 2:
+                    lightSide.add(new Sniper(lightSide, 0, 0));
+                    break;
+                case 3:
+                    lightSide.add(new Spearman(lightSide, 0, 0));
+                    break;
+                case 4:
+                    lightSide.add(new Magician(lightSide, 0, 0));
+                    break;
+                case 5:
+                    lightSide.add(new Crossbow(lightSide, 0, 0));
+                    break;
+                default:
+                    lightSide.add(new Monk(lightSide, 0, 0));
+
+            }
+
+        }
+
+        Scanner in = new Scanner(System.in);
+        while (true) {
+            String txt = in.nextLine();
+            if (txt.equals("next")) {
+                for (int index = 0; index < darkSide.size(); index++) {
+                    darkSide.get(index).step();
+                    lightSide.get(index).step();
+                    if (darkSide.get(index).returnCondtion().length() > 27) {
+                        System.out.println(
+                                darkSide.get(index).returnCondtion() + "\t:\t" + lightSide.get(index).returnCondtion());
+                    } else {
+                        System.out.println(
+                                darkSide.get(index).returnCondtion() + "\t\t:\t"
+                                        + lightSide.get(index).returnCondtion());
+                    }
+                }
+            }
+            if (txt.equals("quit")) {
+                break;
+            }
+
+        }
+
     }
 
 }

@@ -1,80 +1,81 @@
 package game;
 
-public class BaseHero implements Actions {
+import java.util.List;
+import game.Chars.Vector2;
+
+public abstract class BaseHero implements Actions {
 
     protected String name;
     protected int attack;
     protected int protection;
     protected int shots;
-    protected int[] damage = new int[2];
-    protected int health;
+    protected Vector2 damage;
+    public float health;
     protected int speed;
     protected boolean delivery;
-    protected boolean magic = true;
+    protected boolean magic;
+    protected String status;
+    protected Vector2 position;
+    protected List<BaseHero> list;
 
 
-    public BaseHero() {}
+    protected List<BaseHero> getList() {return list;}
+
+    public BaseHero(List<BaseHero> side) {list = side;}
 
 
-    public String getName() {
-        return name;
-    }
-    public int getAttack() {
-        return attack;
-    }
-    public int getProtection() {
-        return protection;
-    }
-    public int getShots() {
-        return shots;
-    }
-    public int getDamage(int damage) {
-        return damage;
-    }
-    public int getHealth() {
-        return health;
-    }
-    public int getSpeed() {
-        return speed;
-    }
-    public boolean getDelivery() {
-        return delivery;
-    }
-    public boolean getMagic() {
-        return magic;
-    }
+
+    public String getName() {return name;}
+    public void setName(String name) {this.name = name;}
+
+    public int getAttack() {return attack;}
+    public void setAttack(int attack) {this.attack = attack;}
+
+    public int getProtection() {return protection;}
+    public void setProtection(int protection) {this.protection = protection;}
+
+    public int getShots() {return shots;}
+    public void setShots(int shots) {this.shots = shots;}
+
+    public Vector2 getDamage() {return damage;}
+    public void setDamage(Vector2 damage) {this.damage = damage;}
+    
+    public float getHealth() {return health;}
+    public void setHealth(int health) {this.health = health;}
+
+    public int getSpeed() {return speed;}
+    public void setSpeed(int speed) {this.speed = speed;}
+    
+    public boolean getDelivery() {return delivery;}
+    public void setDelivery(Boolean delivery) {this.delivery = delivery;}
+
+    public boolean getMagic() {return magic;}
+    public void setMagic(Boolean magic) {this.magic = magic;}
+
+    public String getStatus() {return status;}
+    public void setStatus(String status) {this.status = status;}
+
+    public Vector2 getPosition() {return position;}
+    public void setPosition(Vector2 position) {this.position = position;}
 
 
 
 
     @Override
-    public float hit() {
-        // 
-        return 0;
-    }
+    public void hit() {}
 
     @Override
-    public float getHit(float damage) {
-        // 
-        return 0;
-    }
+    public float getHit(float damage) {return 0;}
 
     @Override
-    public boolean status() {
-        // 
-        return false;
-    }
+    public boolean status() {return false;}
 
     @Override
-    public boolean changePosition() {
-        // 
-        return false;
-    }
+    public Vector2 changePosition() {return position;}
 
     @Override
     public String returnCondtion() {
-        // 
-        return null;
+        return String.format(getName() + " Health: " + getHealth());
     }
     
 }
