@@ -24,8 +24,11 @@ public class Magician extends BaseHero {
     }
 
     @Override
-    public void step() {
-   
+    public void step(List<BaseHero> side) {
+        int min = 0;
+        BaseHero p = super.list.get(0);
+        for (BaseHero i : super.list) {if (i.health - i.crntHealth > min && !p.status.equals("Die")) {min = 0; p=i;}}
+        p.crntHealth -= damage.x;
     }
 
 }

@@ -24,7 +24,7 @@ public class Peasant extends BaseHero {
     }
 
     @Override
-    public void step() {
+    public void step(List<BaseHero> side) {
   
     }
 }

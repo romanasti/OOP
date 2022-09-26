@@ -77,10 +77,10 @@ public class Program {
         Scanner in = new Scanner(System.in);
         while (true) {
             String txt = in.nextLine();
-            if (txt.equals("next")) {
+            if (txt.equals("N")) {
                 for (int index = 0; index < darkSide.size(); index++) {
-                    darkSide.get(index).step();
-                    lightSide.get(index).step();
+                    darkSide.get(index).step(lightSide);
+                    lightSide.get(index).step(darkSide);
                     if (darkSide.get(index).returnCondtion().length() > 27) {
                         System.out.println(
                                 darkSide.get(index).returnCondtion() + "\t:\t" + lightSide.get(index).returnCondtion());
@@ -91,7 +91,7 @@ public class Program {
                     }
                 }
             }
-            if (txt.equals("quit")) {
+            if (txt.equals("Q")) {
                 break;
             }
 

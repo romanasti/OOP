@@ -5,23 +5,30 @@ import game.Chars.Vector2;
 
 public abstract class BaseHero implements Actions {
 
-    protected String name;
+    public String name;
     protected int attack;
     protected int protection;
     protected int shots;
     protected Vector2 damage;
     public float health;
+    public float crntHealth;
     protected int speed;
     protected boolean delivery;
     protected boolean magic;
-    protected String status;
-    protected Vector2 position;
+    public String status;
+    public Vector2 position;
     protected List<BaseHero> list;
+    protected String state;
+    
+
 
 
     protected List<BaseHero> getList() {return list;}
 
     public BaseHero(List<BaseHero> side) {list = side;}
+
+    @Override
+    public void step(List<BaseHero> side) {}
 
 
 
@@ -53,10 +60,24 @@ public abstract class BaseHero implements Actions {
     public void setMagic(Boolean magic) {this.magic = magic;}
 
     public String getStatus() {return status;}
-    public void setStatus(String status) {this.status = status;}
+
+    @Override
+    public void setStatus() {
+        if (!status.equals("Die")) {
+            status = "stand";
+            if (crntHealth < 0 ) {
+                status = "Die";
+                crntHealth = 0;
+            }
+            if (crntHealth > health) crntHealth = health;
+        }}
+
 
     public Vector2 getPosition() {return position;}
     public void setPosition(Vector2 position) {this.position = position;}
+
+    public String getState() {return state;}
+    public void setState(String state) {this.state = state;}
 
 
 
@@ -75,7 +96,24 @@ public abstract class BaseHero implements Actions {
 
     @Override
     public String returnCondtion() {
-        return String.format(getName() + " Health: " + getHealth());
+        return String.format(getName() + " Health: " + getHealth() + " State: "+getState());
     }
     
+    // public Vector2 getDistance(List<BaseHero> side){
+    //     float dist = Integer.MAX_VALUE;
+    //     float out = 0;
+
+    //     for (int i = 0; i < side.size(); i++) {
+    //         float dX = side.get(i).position.x - position.x;
+    //         float dY = side.get(i).position.y - position.y;
+    //         float tD = (float) Math.sqrt(dX*dX + dY*dY);
+    //         if (dist > tD && !side.get(i).status.equals("Die")) {
+    //             out = i;
+    //             dist = tD;
+    //         }
+    //     }
+    //     return new Vector2(out, dist);
+    // }
+    
+
 }

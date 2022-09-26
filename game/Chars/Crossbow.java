@@ -17,17 +17,33 @@ public class Crossbow extends BaseHero {
         delivery = false;
         magic = false;
         status = "stand";
+        position = new Vector2(x, y);
     }
 
     public String getInfo() {
         return String.format("great damage in long-range combat");
     }
 
-    @Override
-    public void step() {
-
+    public boolean status() {
+        return status.equals("active");
     }
 
-
+    // @Override
+    // public void step(List<BaseHero> side) {
+    //     boolean tmp = false;
+    //     for (BaseHero bh : super.list) {
+    //         if (bh.name.equals("Peasant") && bh.name.equals("stand")) {
+    //             tmp = true;
+    //             bh.name = "busy";
+    //             break;
+    //         }
+    //     }
+    //     Vector2 target = super.getDistance(side);
+    //     float dd = (damage.x + damage.y) / 2;
+    //     int d = (int) Math.round(dd + (dd / 10) * (5 - target.y));
+    //     side.get((int) target.x).crntHealth -= d;
+    //     if (!tmp)
+    //         shots--;
+    // }
 
 }

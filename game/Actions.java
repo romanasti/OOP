@@ -1,5 +1,7 @@
 package game;
 
+import java.util.List;
+
 import game.Chars.Vector2;
 
 public interface Actions {
@@ -8,5 +10,6 @@ public interface Actions {
     boolean status();
     Vector2 changePosition();
     String returnCondtion();
-    void step();
+    void step(List<BaseHero> side);
+    void setStatus();
 }

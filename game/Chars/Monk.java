@@ -13,11 +13,12 @@ public class Monk extends BaseHero {
         protection = 7;
         shots = 0;
         damage = new Vector2(-4, -4);
-        health = 30;
+        crntHealth = health = 30;
         speed = 5;
         delivery = false;
         magic = true;
         status = "stand";
+        position = new Vector2(x, y);
     }
 
     public String getInfo() {
@@ -25,18 +26,11 @@ public class Monk extends BaseHero {
     }
 
     @Override
-    public void step() {
+    public void step(List<BaseHero> side) {
         Random rnd = new Random();
         list.get(rnd.nextInt(list.size())).health -= damage.x;
-        //    int i = new Random().nextInt(super.list.size());
-        // BaseHero p = super.list.get(i);
-        // if (!p.status.equals("Die.")){
-        //     super.list.get(i).crntHealth -= damage.x;
-        //     if (super.list.get(i).crntHealth >= super.list.get(i).health) {
-        //         super.list.get(i).crntHealth = super.list.get(i).health;
-        //     }
-        // }
+        // лечит одного случайного героя из своей команды(включая себя)
+
     }
 
 }
- 
