@@ -12,11 +12,12 @@ public class Magician extends BaseHero {
         protection = 12;
         shots = 0;
         damage = new Vector2(-4, -4);
-        health = 30;
+        crntHealth = health = 30;
         speed = 9;
         delivery = false;
         magic = true;
         status = "stand";
+        position = new Vector2(x, y);
     }
 
     public String getInfo() {

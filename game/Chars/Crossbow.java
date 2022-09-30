@@ -8,12 +8,12 @@ public class Crossbow extends BaseHero {
     public Crossbow(List<BaseHero> side, int x, int y) {
         super(side);
         name = "Taurus";
-        attack = 6;
+        attack = 8;
         protection = 3;
-        shots = 16;
-        damage = new Vector2(-4, -4);
-        health = 10;
-        speed = 4;
+        shots = 8;
+        damage = new Vector2(2, 4);
+        crntHealth = health = 10;
+        speed = 6;
         delivery = false;
         magic = false;
         status = "stand";
@@ -28,22 +28,22 @@ public class Crossbow extends BaseHero {
         return status.equals("active");
     }
 
-    // @Override
-    // public void step(List<BaseHero> side) {
-    //     boolean tmp = false;
-    //     for (BaseHero bh : super.list) {
-    //         if (bh.name.equals("Peasant") && bh.name.equals("stand")) {
-    //             tmp = true;
-    //             bh.name = "busy";
-    //             break;
-    //         }
-    //     }
-    //     Vector2 target = super.getDistance(side);
-    //     float dd = (damage.x + damage.y) / 2;
-    //     int d = (int) Math.round(dd + (dd / 10) * (5 - target.y));
-    //     side.get((int) target.x).crntHealth -= d;
-    //     if (!tmp)
-    //         shots--;
-    // }
+    @Override
+    public void step(List<BaseHero> side) {
+        boolean tmp = false;
+        for (BaseHero bh : super.list) {
+            if (bh.name.equals("Peasant") && bh.name.equals("stand")) {
+                tmp = true;
+                bh.name = "busy";
+                break;
+            }
+        }
+        Vector2 target = super.getDistance(side);
+        float dd = (damage.x + damage.y) / 2;
+        int d = (int) Math.round(dd + (dd / 10) * (5 - target.y));
+        side.get((int) target.x).crntHealth -= d;
+        if (!tmp)
+            shots--;
+    }
 
 }

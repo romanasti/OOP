@@ -11,20 +11,21 @@ public class Peasant extends BaseHero {
         attack = 1;
         protection = 1;
         shots = 0;
-        damage = new Vector2(-4, -4);
-        health = 1;
+        damage = new Vector2(2, 4);
+        crntHealth = health = 1;
         speed = 3;
         delivery = true;
         magic = false;
         status = "stand";
+        position = new Vector2(x, y);
     }
 
     public String getInfo() {
         return String.format("the most important thing that is in the village");
     }
 
-    @Override
-    public void step(List<BaseHero> side) {
+    // @Override
+    // public void step() {
   
-    }
+    // }
 }

@@ -8,7 +8,7 @@ public interface Actions {
     void hit();
     float getHit(float damage);
     boolean status();
-    Vector2 changePosition();
+    Vector2 getPosition();
     String returnCondtion();
     void step(List<BaseHero> side);
     void setStatus();

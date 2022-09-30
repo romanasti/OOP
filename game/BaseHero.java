@@ -91,29 +91,34 @@ public abstract class BaseHero implements Actions {
     @Override
     public boolean status() {return false;}
 
-    @Override
-    public Vector2 changePosition() {return position;}
 
     @Override
     public String returnCondtion() {
-        return String.format(getName() + " Health: " + getHealth() + " State: "+getState());
+        return name +
+        " H:" + crntHealth +
+        " D:" + protection +
+        " A:" + attack +
+        " Dmg:" + (int)(Math.abs((damage.x+damage.y)/2)) +
+        (shots>0?" Shots:" + shots:"") + " " +
+        status;
     }
-    
-    // public Vector2 getDistance(List<BaseHero> side){
-    //     float dist = Integer.MAX_VALUE;
-    //     float out = 0;
 
-    //     for (int i = 0; i < side.size(); i++) {
-    //         float dX = side.get(i).position.x - position.x;
-    //         float dY = side.get(i).position.y - position.y;
-    //         float tD = (float) Math.sqrt(dX*dX + dY*dY);
-    //         if (dist > tD && !side.get(i).status.equals("Die")) {
-    //             out = i;
-    //             dist = tD;
-    //         }
-    //     }
-    //     return new Vector2(out, dist);
-    // }
+    
+    public Vector2 getDistance(List<BaseHero> side){
+        float dist = Integer.MAX_VALUE;
+        float out = 0;
+
+        for (int i = 0; i < side.size(); i++) {
+            float dX = side.get(i).position.x - position.x;
+            float dY = side.get(i).position.y - position.y;
+            float tD = (float) Math.sqrt(dX*dX + dY*dY);
+            if (dist > tD && !side.get(i).status.equals("Die")) {
+                out = i;
+                dist = tD;
+            }
+        }
+        return new Vector2(out, dist);
+    }
     
 
 }
