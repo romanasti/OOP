@@ -17,13 +17,11 @@ import game.Chars.Spearman;
 public class Program {
     private static final int[] l = { 0 };
     private static final List<BaseHero> darkSide = new ArrayList<>();
-    private static final List<BaseHero> whiteSide = new ArrayList<>();
-    private static final String top10 = formatDiv("a");
-    //         + String.join("", (CharSequence) Collections.nCopies(9, formatDiv("-b"))) + formatDiv("-c");
-    // private static final String midl10 = formatDiv("d")
-    //         + String.join("", (CharSequence) Collections.nCopies(9, formatDiv("-e"))) + formatDiv("-f");
-    // private static final String bottom10 = formatDiv("g")
-    //         + String.join("", (CharSequence) Collections.nCopies(9, formatDiv("-h"))) + formatDiv("-i");
+    private static final List<BaseHero> lightSide = new ArrayList<>();
+    private static final String top10 = formatDiv("a") + String.join("", Collections.nCopies(9, formatDiv("-b"))) + formatDiv("-c");
+    private static final String midl10 = formatDiv("d") + String.join("", Collections.nCopies(9, formatDiv("-e"))) + formatDiv("-f");
+    private static final String bottom10 = formatDiv("g") + String.join("", Collections.nCopies(9, formatDiv("-h"))) + formatDiv("-i");
+  
 
     public static void main(String[] args) {
         int step = 1;
@@ -41,8 +39,13 @@ public class Program {
             step++;
 
             view();
-            darkSide.forEach(BaseHero::step);
-            whiteSide.forEach(BaseHero::step);
+
+            darkSide.forEach(BaseHero::setStatus);
+            lightSide.forEach(BaseHero::setStatus);
+
+            darkSide.forEach((s) -> s.step(lightSide));
+            lightSide.forEach((s) -> s.step(darkSide));
+
             in.nextLine();
         }
     }
@@ -73,24 +76,24 @@ public class Program {
 
         x = 1;
         y = 10;
-        whiteSide.add(new Peasant(whiteSide, x++, y));
-        whiteSide.add(new Monk(whiteSide, x++, y));
-        whiteSide.add(new Crossbow(whiteSide, x++, y));
-        whiteSide.add(new Spearman(whiteSide, x++, y));
+        lightSide.add(new Peasant(lightSide, x++, y));
+        lightSide.add(new Monk(lightSide, x++, y));
+        lightSide.add(new Crossbow(lightSide, x++, y));
+        lightSide.add(new Spearman(lightSide, x++, y));
 
         for (int i = 0; i < 6; i++) {
             switch (rnd.nextInt(4)) {
                 case 0:
-                    whiteSide.add(new Peasant(whiteSide, x++, y));
+                    lightSide.add(new Peasant(lightSide, x++, y));
                     break;
                 case 1:
-                    whiteSide.add(new Monk(whiteSide, x++, y));
+                    lightSide.add(new Monk(lightSide, x++, y));
                     break;
                 case 2:
-                    whiteSide.add(new Crossbow(whiteSide, x++, y));
+                    lightSide.add(new Crossbow(lightSide, x++, y));
                     break;
                 default:
-                    whiteSide.add(new Spearman(whiteSide, x++, y));
+                    lightSide.add(new Spearman(lightSide, x++, y));
             }
         }
     }
@@ -121,8 +124,8 @@ public class Program {
         for (int cnt = 0; cnt < darkSide.size(); cnt++) {
             if (darkSide.get(cnt).getPosition().x == x && darkSide.get(cnt).getPosition().y == y) {
                 out = "|" + (AnsiColors.ANSI_BLUE + darkSide.get(cnt).getName().charAt(0) + AnsiColors.ANSI_RESET);
-            } else if (whiteSide.get(cnt).getPosition().x == x && whiteSide.get(cnt).getPosition().y == y) {
-                out = "|" + (AnsiColors.ANSI_GREEN + whiteSide.get(cnt).getName().charAt(0) + AnsiColors.ANSI_RESET);
+            } else if (lightSide.get(cnt).getPosition().x == x && lightSide.get(cnt).getPosition().y == y) {
+                out = "|" + (AnsiColors.ANSI_GREEN + lightSide.get(cnt).getName().charAt(0) + AnsiColors.ANSI_RESET);
             }
         }
         return out;
@@ -134,18 +137,18 @@ public class Program {
             System.out.print("_");
         System.out.println("");
         System.out.print(top10 + "    ");
-        System.out.print("Blue side");
+        System.out.print("Dark side");
         for (int i = 0; i < l[0] - 9; i++)
             System.out.print(" ");
-        System.out.println(":\tGreen side");
+        System.out.println(":\tLight side");
         for (int i = 1; i < 11; i++) {
             System.out.print(getChar(1, i));
         }
         System.out.print("|    ");
         System.out.print(darkSide.get(0).returnCondtion());
         tabSetter(darkSide.get(0).returnCondtion().length(), l[0]);
-        System.out.println(whiteSide.get(0).returnCondtion());
-        //System.out.println(midl10);
+        System.out.println(lightSide.get(0).returnCondtion());
+        System.out.println(midl10);
 
         for (int i = 2; i < 9; i++) {
             for (int j = 1; j < 11; j++) {
@@ -153,11 +156,12 @@ public class Program {
             }
             System.out.print("|    ");
             System.out.print(darkSide.get(i - 1).returnCondtion());
-            // System.out.print(
-            //         darkSide.get(i - 1).getDistance(whiteSide).x + " " + darkSide.get(i - 1).getDistance(whiteSide).y);
+            System.out.print(
+            darkSide.get(i - 1).getDistance(lightSide).x + " " + darkSide.get(i -
+            1).getDistance(lightSide).y);
             tabSetter(darkSide.get(i - 1).returnCondtion().length(), l[0]);
-            System.out.println(whiteSide.get(i - 1).returnCondtion());
-            //System.out.println(midl10);
+            System.out.println(lightSide.get(i - 1).returnCondtion());
+            System.out.println(midl10);
         }
         for (int j = 1; j < 11; j++) {
             System.out.print(getChar(10, j));
@@ -165,7 +169,7 @@ public class Program {
         System.out.print("|    ");
         System.out.print(darkSide.get(9).returnCondtion());
         tabSetter(darkSide.get(9).returnCondtion().length(), l[0]);
-        System.out.println(whiteSide.get(9).returnCondtion());
-        //System.out.println(bottom10);
+        System.out.println(lightSide.get(9).returnCondtion());
+        System.out.println(bottom10);
     }
 }

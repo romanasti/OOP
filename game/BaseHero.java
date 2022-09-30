@@ -64,9 +64,9 @@ public abstract class BaseHero implements Actions {
     @Override
     public void setStatus() {
         if (!status.equals("Die")) {
-            status = "stand";
+            status = "stand ";
             if (crntHealth < 0 ) {
-                status = "Die";
+                status = "Die ";
                 crntHealth = 0;
             }
             if (crntHealth > health) crntHealth = health;
@@ -111,7 +111,7 @@ public abstract class BaseHero implements Actions {
         for (int i = 0; i < side.size(); i++) {
             float dX = side.get(i).position.x - position.x;
             float dY = side.get(i).position.y - position.y;
-            float tD = (float) Math.sqrt(dX*dX + dY*dY);
+            float tD = Math.round(Math.sqrt(dX*dX + dY*dY));
             if (dist > tD && !side.get(i).status.equals("Die")) {
                 out = i;
                 dist = tD;
