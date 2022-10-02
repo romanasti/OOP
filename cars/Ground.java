@@ -1,6 +1,7 @@
 package cars;
 
 public abstract class Ground extends Vehicle {
+    
 // BMW G 310 R
 // KAWASAKI NINJA 400
 // SUZUKI SV650 ABS (SV650A)
