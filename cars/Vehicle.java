@@ -1,15 +1,20 @@
 package cars;
 
 public abstract class Vehicle {
-    protected int maxSpeed;
-    protected int weight;
-    protected int passengers;
-    protected int powerReserve;
-    protected String model;
-    protected String brand;
-    protected String typeVehicle;
+    protected final Engine engine;
+    protected final Chassis chassis;
+    protected String typeofVehicle;
 
-    protected Engine engine;
 
-    public Vehicle() {}
+    public Vehicle(Engine engine, Chassis chassis) {
+        this.engine = engine;
+        this.chassis = chassis;
+    }
+
+    public Vehicle(Engine engine, Chassis chassis, String typeofVehicle) {
+        this(engine, chassis);
+        this.typeofVehicle = typeofVehicle;
+    }
+
+
 }
