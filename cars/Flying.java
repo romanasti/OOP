@@ -11,10 +11,6 @@ public class Flying extends Vehicle {
         this.ractical_range = ractical_range;
         this.rate_of_climb = rate_of_climb;
     }
-// GEN H-4 - вертолет
-// Air Scooter 2 - вертолет
-// Dynali H2S - вертолет
-// DF Helicopters DF334 - вертолет
 
 @Override
 public String toString() {
@@ -22,9 +18,10 @@ public String toString() {
     return inf;
 }
 
-public String getSpeed() {
-    String inf = "max speed: " + chassis.getMaxSpeed();
-    return inf;
+@Override
+public int getMaxSpeed() {
+    return (int) chassis.getSpeedMax();
+    
 }
 
 public String getEnvironment() {

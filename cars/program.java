@@ -10,12 +10,11 @@ public class program {
 
         ATV atv = new ATV(engine, chassis, "frame", 78.8f);
         System.out.println(atv.toString());
-        int[] ss = {255,55,16};
-        Cars car = new Cars(engine, chassis, "S", ss , 2680);
+        Cars car = new Cars(engine, chassis, "S", 2680);
         System.out.println(car.toString());
         Flying flying = new Flying(engine, chassis, 3.5f, 1000, 40);
         System.out.println(flying.toString());
-        Floating water = new Floating(engine, chassis, "body_type", "body_material", "intake_system");
+        Floating water = new Floating(engine, chassis, "body_type", "body_material");
         System.out.println(water.toString());
     }
 

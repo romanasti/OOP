@@ -1,6 +1,6 @@
 package cars;
 
 public interface description {
-    String getSpeed();
+    int getMaxSpeed();
     String getEnvironment();
 }

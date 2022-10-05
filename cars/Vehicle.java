@@ -1,6 +1,6 @@
 package cars;
 
-public abstract class Vehicle {
+public abstract class Vehicle implements description {
     protected final Engine engine;
     protected final Chassis chassis;
     protected String typeofVehicle;
@@ -14,6 +14,22 @@ public abstract class Vehicle {
     public Vehicle(Engine engine, Chassis chassis, String typeofVehicle) {
         this(engine, chassis);
         this.typeofVehicle = typeofVehicle;
+    }
+
+    @Override
+    public String toString() {
+     return null;
+    }
+
+    @Override
+    public int getMaxSpeed() {
+        return (int) chassis.getSpeedMax();
+        
+    }
+
+    @Override
+    public String getEnvironment() {
+       return null;
     }
 
 

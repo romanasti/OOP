@@ -2,8 +2,8 @@ package cars;
 
 public class Motorsycle extends Vehicle {
 
-    private String frame;
-    private final float steering;
+    protected String frame;
+    protected final float steering;
 
     public Motorsycle(Engine engine, String frame, Chassis chassis, float steering) {
         super(engine, chassis);
@@ -29,7 +29,6 @@ public class Motorsycle extends Vehicle {
     // Yamaha YFZ450R SE - квадроцикл
     // CFMOTO CFORCE 600 S EPS - квадроцикл
     // Polaris Sportsman 570 - квадроцикл
-    
 
     @Override
     public String toString() {
@@ -37,15 +36,16 @@ public class Motorsycle extends Vehicle {
         return inf;
     }
 
-    public String getSpeed() {
-        String inf = "max speed: " + chassis.getMaxSpeed();
-        return inf;
+    @Override
+    public int getMaxSpeed() {
+        return (int) chassis.getSpeedMax();
+        
     }
     
+    @Override
     public String getEnvironment() {
         String inf = "Motorsycle";
         return inf;
     }
-
 
 }

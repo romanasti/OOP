@@ -19,7 +19,7 @@ public class Chassis {
 
     public int getSeats() {return seats;}
     public float getFuelTank() {return fuel_tank;}
-    public float getMaxSpeed() {return max_speed;}
+    public float getSpeedMax() {return max_speed;}
     public float getLenght() {return lenght;}
     public float getWidth() {return width;}
     public float getHeight() {return height;}

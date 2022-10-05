@@ -7,6 +7,7 @@ public class ATV extends Motorsycle {
 
     @Override
     public String toString() {
-        return String.format("Type of Vehicle: %s, frame: $s, seats: %s, max speed: %s, steering: %s, volume of engine: %s", "ATV", "frame", 4, 50f, "steering", 1.6f);
+        String inf = "Type of Vehicle: " + "ATV, " + "frame: " + frame + ", steering: " + steering;
+        return inf;
     }
 }
