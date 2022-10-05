@@ -33,7 +33,18 @@ public class Motorsycle extends Vehicle {
 
     @Override
     public String toString() {
-        return String.format("Type of Vehicle: %s, frame: $s, seats: %s, max speed: %s, steering: %s, volume of engine: %s", getTypeofVehicle(), frame, 4, 50f, steering, 1.6f);
+        String inf = "Type of Vehicle: " + "Motorsycle, " + "frame: " + frame + ", steering: " + steering;
+        return inf;
+    }
+
+    public String getSpeed() {
+        String inf = "max speed: " + chassis.getMaxSpeed();
+        return inf;
+    }
+    
+    public String getEnvironment() {
+        String inf = "Motorsycle";
+        return inf;
     }
 
 
