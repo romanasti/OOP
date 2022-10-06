@@ -1,4 +1,4 @@
-package cars;
+package cars.type;
 
 public class Floating extends Vehicle {
 

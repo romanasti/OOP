@@ -1,12 +1,12 @@
-package cars;
+package cars.type;
 
 public class Cars extends Vehicle {
     private final String drive;
     private final int wheelbase;
 
 
-    public Cars(Engine engine, Chassis chassis, String drive, int wheelbase) {
-        super(engine,chassis);
+    public Cars(Engine engine, Chassis chassis, String brand, String model, String drive, int wheelbase) {
+        super(engine,chassis,brand,model);
         this.drive = drive;
         this.wheelbase = wheelbase;
     }

@@ -1,24 +1,32 @@
-package cars;
+package cars.type;
+
+import cars.description;
 
 public abstract class Vehicle implements description {
     protected final Engine engine;
     protected final Chassis chassis;
-    protected String typeofVehicle;
+    protected final String brand;
+    protected final String model;
 
 
     public Vehicle(Engine engine, Chassis chassis) {
         this.engine = engine;
         this.chassis = chassis;
+        this.brand = "";
+        this.model = "";
     }
 
-    public Vehicle(Engine engine, Chassis chassis, String typeofVehicle) {
-        this(engine, chassis);
-        this.typeofVehicle = typeofVehicle;
+    public Vehicle(Engine engine, Chassis chassis, String brand, String model){
+        this.engine = engine;
+        this.chassis = chassis;
+        this.brand = brand;
+        this.model = model;
     }
 
     @Override
     public String toString() {
-     return null;
+        String inf = "brand: "+ brand +" model: "+ model;
+        return inf;
     }
 
     @Override

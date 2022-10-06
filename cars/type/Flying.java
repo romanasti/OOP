@@ -1,4 +1,4 @@
-package cars;
+package cars.type;
 
 public class Flying extends Vehicle {
     private final float rotor_diametr;
