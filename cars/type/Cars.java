@@ -12,7 +12,7 @@ public class Cars extends Vehicle {
     }
     @Override
     public String toString() {
-        String inf = "Type of Vehicle: " + "Cars, " + "drive: " + drive + ",  wheelbase " + wheelbase;
+        String inf = "Type of Vehicle: " + getEnvironment() + ", brand: "+ brand +", model: "+ model + ", maxSpeed: " + getMaxSpeed() + ", drive: " + drive + ", wheelbase: " + wheelbase + chassis.toChassis()+ " "+ engine.toEngine();
         return inf;
     }
 
@@ -24,7 +24,7 @@ public class Cars extends Vehicle {
     
     @Override
     public String getEnvironment() {
-        String inf = "Cars";
+        String inf = "Car";
         return inf;
     }
 

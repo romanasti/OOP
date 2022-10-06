@@ -11,8 +11,4 @@ public class program {
         for (Vehicle item : listArray) {System.out.println(item.toString()+"\n");}
 
     }
-
-    
-
-
 }
