@@ -7,7 +7,12 @@ public class ATV extends Motorsycle {
 
     @Override
     public String toString() {
-        String inf = "Type of Vehicle: " + "ATV, " + "frame: " + frame + ", steering: " + moto_type;
+        String inf = "Type of Vehicle: " + getEnvironment() + ", brand: "+ brand +", model: "+ model + ", maxSpeed: " + getMaxSpeed() + ", frame: " + frame + ", moto_type: " + moto_type + chassis.toChassis()+ " "+ engine.toEngine();
+        return inf;
+    }
+    @Override
+    public String getEnvironment() {
+        String inf = "ATV";
         return inf;
     }
 }

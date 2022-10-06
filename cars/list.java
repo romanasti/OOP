@@ -4,9 +4,11 @@ package cars;
 import java.util.ArrayList;
 import java.util.List;
 
+import cars.type.ATV;
 import cars.type.Cars;
 import cars.type.Chassis;
 import cars.type.Engine;
+import cars.type.Floating;
 import cars.type.Motorsycle;
 import cars.type.Vehicle;
 
@@ -15,6 +17,8 @@ public class list {
     public static List<Vehicle> List() {
 
         List<Vehicle> transport = new ArrayList<>();
+
+        // Moto
 
         Engine bmw1 = new Engine(313, 34, 1);
         Chassis bmw2 = new Chassis(2, 11.0f, 143, 2005, 849, 1080);
@@ -31,6 +35,8 @@ public class list {
         Motorsycle suz3 = new Motorsycle(suz1, "steel tubular", suz2, "naked", "Suzuki", "SV650");
         transport.add(suz3);
 
+        // Car
+
         Engine inf1 = new Engine(3498, 262, 6);
         Chassis inf2 = new Chassis(7, 73f, 190, 5093, 1960, 1742);
         Cars inf3 = new Cars(inf1, inf2, "Infiniti", "QX60", "petrol", 2900);
@@ -46,14 +52,43 @@ public class list {
         Cars aud3 = new Cars(aud1, aud2, "Audi", "A3", "petrol", 2578);
         transport.add(aud3);
 
+        // ATV
 
-        // Infiniti QX60- автомобиль
-        // Nissan Juke- автомобиль
-        // Audi А3- автомобиль
+        Engine rm1 = new Engine(800, 60, 2);
+        Chassis rm2 = new Chassis(2, 24.5f, 100, 2340, 1210, 1480);
+        ATV rm3 = new ATV(rm1, rm2, "steel", "atv", "RM", "800Duo");
+        transport.add(rm3);
 
-        // RM 800 DUO - квадроцикл
-        // Stels ATV 650 Guepard ST - квадроцикл
-        // Yamaha YFZ450R SE - квадроцикл
+        Engine stel1 = new Engine(650, 52, 2);
+        Chassis stel2 = new Chassis(2, 30f, 90, 2390, 1350, 1545);
+        ATV stel3 = new ATV(stel1, stel2, "tubular, welded", "atv", "Stels", "ATV650_GuepardSt");
+        transport.add(stel3);
+
+        Engine yam1 = new Engine(449, 39, 1);
+        Chassis yam2 = new Chassis(1, 10f, 80, 1795, 1240, 1065);
+        ATV yam3 = new ATV(yam1, yam2, "aluminum", "sport", "Yamaha", "YFZ450R_SE");
+        transport.add(yam3);
+
+        // jet sky
+
+        Engine yam1 = new Engine(449, 39, 1);
+        Chassis yam2 = new Chassis(1, 10f, 80, 1795, 1240, 1065);
+        Floating yam3 = new Floating(yam1, yam2, null, null);
+        transport.add(yam3);
+
+        Engine yam1 = new Engine(449, 39, 1);
+        Chassis yam2 = new Chassis(1, 10f, 80, 1795, 1240, 1065);
+        Floating yam3 = new Floating(yam1, yam2, null, null);
+        transport.add(yam3);
+
+        Engine yam1 = new Engine(449, 39, 1);
+        Chassis yam2 = new Chassis(1, 10f, 80, 1795, 1240, 1065);
+        Floating yam3 = new Floating(yam1, yam2, null, null);
+        transport.add(yam3);
+        
+
+
+
 
         // SEA-DOO PERFORMANCE RXP-X 300 - гидроцикл
         // YAMAHA FX CRUISER SVHO - гидроцикл

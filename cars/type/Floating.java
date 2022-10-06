@@ -14,7 +14,7 @@ public class Floating extends Vehicle {
 
     @Override
     public String toString() {
-        String inf = "Type of Vehicle: " + "Floating, " + "body_type: " + body_type + ", body_materials: " + body_material;
+        String inf = "Type of Vehicle: " + getEnvironment() + ", brand: "+ brand +", model: "+ model + ", maxSpeed: " + getMaxSpeed() + ", body_type: " + body_type + ", body_material: " + body_material + chassis.toChassis()+ " "+ engine.toEngine();
         return inf;
     }
     
@@ -24,7 +24,7 @@ public class Floating extends Vehicle {
     }
     
     public String getEnvironment() {
-        String inf = "Floating vehicle";
+        String inf = "Jet Sky";
         return inf;
     }
 
