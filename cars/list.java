@@ -9,6 +9,7 @@ import cars.type.Cars;
 import cars.type.Chassis;
 import cars.type.Engine;
 import cars.type.Floating;
+import cars.type.Flying;
 import cars.type.Motorsycle;
 import cars.type.Vehicle;
 
@@ -85,11 +86,23 @@ public class list {
         Chassis spar2 = new Chassis(3, 30f, 77, 3050, 1180, 1070);
         Floating spar3 = new Floating(spar1, spar2, "Spark", "polytec", "Sea-doo", "Spart_trixx_3up");
         transport.add(spar3);
-        
 
-        // GEN H-4 - вертолет
-        // Air Scooter 2 - вертолет
-        // Dynali H2S - вертолет
+        // Helicopter
+
+        Engine gen1 = new Engine(125, 40, 2);
+        Chassis gen2 = new Chassis(1, 15f, 88, 1056, 1056, 2012);
+        Flying gen3 = new Flying(gen1, gen2, 4000, 120000, 3000, "Gen", "H-4");
+        transport.add(gen3);
+
+        Engine air1 = new Engine(125, 65, 2);
+        Chassis air2 = new Chassis(1, 18.9f, 110, 3082, 2013, 3035);
+        Flying air3 = new Flying(air1, air2, 4028, 210000, 2100, "Air", "Scooter2");
+        transport.add(air3);
+
+        Engine dyn1 = new Engine(2500, 180, 4);
+        Chassis dyn2 = new Chassis(2, 90f, 190, 7095, 2000, 3035);
+        Flying dyn3 = new Flying(dyn1, dyn2, 7016, 550000, 3650, "Dynali", "H2s");
+        transport.add(dyn3);
 
         return transport;
     }
