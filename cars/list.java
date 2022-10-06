@@ -71,28 +71,21 @@ public class list {
 
         // jet sky
 
-        Engine yam1 = new Engine(449, 39, 1);
-        Chassis yam2 = new Chassis(1, 10f, 80, 1795, 1240, 1065);
-        Floating yam3 = new Floating(yam1, yam2, null, null);
-        transport.add(yam3);
+        Engine sea1 = new Engine(1630, 300, 3);
+        Chassis sea2 = new Chassis(2, 70f, 80, 3316, 1227, 1111);
+        Floating sea3 = new Floating(sea1, sea2, "T3-R", "fiber glass", "Sea-doo", "RXP-X 300");
+        transport.add(sea3);
 
-        Engine yam1 = new Engine(449, 39, 1);
-        Chassis yam2 = new Chassis(1, 10f, 80, 1795, 1240, 1065);
-        Floating yam3 = new Floating(yam1, yam2, null, null);
-        transport.add(yam3);
+        Engine cruz1 = new Engine(1812, 260, 4);
+        Chassis cruz2 = new Chassis(3, 70f, 110, 3056, 1023, 1023);
+        Floating cruz3 = new Floating(cruz1, cruz2, "progressive stepped V", "nanoXcel2", "Yamaha", "Fx_Cruiser_Svho");
+        transport.add(cruz3);
 
-        Engine yam1 = new Engine(449, 39, 1);
-        Chassis yam2 = new Chassis(1, 10f, 80, 1795, 1240, 1065);
-        Floating yam3 = new Floating(yam1, yam2, null, null);
-        transport.add(yam3);
+        Engine spar1 = new Engine(899, 90, 3);
+        Chassis spar2 = new Chassis(3, 30f, 77, 3050, 1180, 1070);
+        Floating spar3 = new Floating(spar1, spar2, "Spark", "polytec", "Sea-doo", "Spart_trixx_3up");
+        transport.add(spar3);
         
-
-
-
-
-        // SEA-DOO PERFORMANCE RXP-X 300 - гидроцикл
-        // YAMAHA FX CRUISER SVHO - гидроцикл
-        // SEA-DOO SPARK TRIXX 3UP- гидроцикл
 
         // GEN H-4 - вертолет
         // Air Scooter 2 - вертолет

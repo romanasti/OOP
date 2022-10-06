@@ -6,8 +6,8 @@ public class Floating extends Vehicle {
     private final String body_material;
 
 
-    public Floating(Engine engine, Chassis chassis, String body_type, String body_material) {
-        super(engine, chassis);
+    public Floating(Engine engine, Chassis chassis, String body_type, String body_material, String brand, String model) {
+        super(engine, chassis, brand, model);
         this.body_type = body_type;
         this.body_material = body_material;
     }
